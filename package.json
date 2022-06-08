@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "prettier": "prettier --config .prettierrc --write src/**/*.ts",
-    "lint": "eslint src/**/*.ts"
+    "lint": "eslint src/**/*.ts",
+    "checks": "npm run prettier && npm run lint && npx tsc"
   },
   "private": true,
   "dependencies": {
