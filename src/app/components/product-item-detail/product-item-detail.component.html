@@ -1,13 +1,15 @@
-<img src="{{ product.url }}" alt="Image of product" />
-
-<h1>{{ product.name }}</h1>
-<p>${{ product.price }}</p>
-<p>{{ product.description }}</p>
-
-<select [(ngModel)]="product.amount">
-    <option *ngFor="let i of selectableAmounts" [ngValue]="i">{{ i }}</option>
-</select>
-<br>
-<button (click)="addToCart()">Add to cart</button>
-<br>
-<a routerLink="/">Back to product list</a>
+<div class="detail-container">
+    <img src="{{ product.url }}" alt="Image of product" />
+    <div class="detail-item">
+        <h2>{{ product.name }}</h2>
+        ${{ product.price }}
+        <p>{{ product.description }}</p>
+        <select class="select-input" [(ngModel)]="product.amount">
+            <option *ngFor="let i of selectableAmounts" [ngValue]="i">{{ i }}</option>
+        </select>
+        <br>
+        <button (click)="addToCart()">Add to cart</button>
+        <br>
+        <a class="back-link" routerLink="/">Back to product list</a>
+    </div>
+</div>
