@@ -7,9 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
-	declarations: [AppComponent, ProductListComponent, ProductItemComponent],
+	declarations: [
+		AppComponent,
+		ProductListComponent,
+		ProductItemComponent,
+		CartComponent,
+	],
 	imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
 	providers: [],
 	bootstrap: [AppComponent],
