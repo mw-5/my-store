@@ -18,4 +18,15 @@ export class ProductListComponent implements OnInit {
 			this.products = data;
 		});
 	}
+
+	/**
+	 * @description Handle amountUpdated event by setting
+	 * the current amount of the product to the new amount.
+	 * @param {Product} product - The product to be updated
+	 * @param {number} newAmount - The new amount of the product
+	 */
+	updateAmount(product: Product, newAmount: number): void {
+		product.amount = newAmount;
+		alert(`${product.name} new amount: ${product.amount}`);
+	}
 }
