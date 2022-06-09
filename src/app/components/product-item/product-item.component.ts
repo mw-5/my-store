@@ -8,6 +8,8 @@ import { Product } from 'src/app/models/product';
 })
 export class ProductItemComponent implements OnInit {
 	@Input() product: Product;
+	selectableAmounts: number[] = [];
+	maxAmount = 10;
 
 	constructor() {
 		// Init product for type safety
@@ -21,5 +23,10 @@ export class ProductItemComponent implements OnInit {
 		};
 	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		// Build array for selectable amounts
+		for (let i = 1; i <= this.maxAmount; i++) {
+			this.selectableAmounts.push(i);
+		}
+	}
 }

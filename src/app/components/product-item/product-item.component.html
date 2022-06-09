@@ -3,6 +3,10 @@
     <div>
         <p>{{ product.name }}</p>
         <p>${{ product.price }}</p>
-        <p>Amount: {{ product.amount }}</p>
+        <p>Amount: 
+            <select [(ngModel)]="product.amount">
+                <option *ngFor="let i of selectableAmounts" [ngValue]="i">{{ i }}</option>
+            </select>
+        </p>
     </div>
 </div>
