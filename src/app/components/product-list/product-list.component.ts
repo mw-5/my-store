@@ -27,6 +27,5 @@ export class ProductListComponent implements OnInit {
 	 */
 	updateAmount(product: Product, newAmount: number): void {
 		product.amount = newAmount;
-		alert(`${product.name} new amount: ${product.amount}`);
 	}
 }
