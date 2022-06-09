@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
 	selector: 'app-product-item-detail',
@@ -14,7 +15,8 @@ export class ProductItemDetailComponent implements OnInit {
 
 	constructor(
 		private productService: ProductService,
-		private route: ActivatedRoute
+		private route: ActivatedRoute,
+		private cart: CartService
 	) {
 		// Init product for type safety
 		this.product = {
@@ -59,5 +61,13 @@ export class ProductItemDetailComponent implements OnInit {
 		for (let i = 1; i <= maxAmount; i++) {
 			this.selectableAmounts.push(i);
 		}
+	}
+
+	/**
+	 * @description Add product to shopping cart.
+	 */
+	addToCart(): void {
+		this.cart.addProduct(this.product);
+		alert('Added to cart.');
 	}
 }

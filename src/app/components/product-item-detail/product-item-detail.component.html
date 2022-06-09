@@ -7,5 +7,5 @@
 <select [(ngModel)]="product.amount">
     <option *ngFor="let i of selectableAmounts" [ngValue]="i">{{ i }}</option>
 </select>
-
-<!-- TODO: add add-to-cart button -->
+<br>
+<button (click)="addToCart()">Add to cart</button>
