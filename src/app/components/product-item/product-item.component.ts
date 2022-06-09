@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/models/product';
 
 @Component({
@@ -10,6 +10,7 @@ export class ProductItemComponent implements OnInit {
 	@Input() product: Product;
 	selectableAmounts: number[] = [];
 	maxAmount = 10;
+	@Output() amountUpdated: EventEmitter<number> = new EventEmitter();
 
 	constructor() {
 		// Init product for type safety
@@ -28,5 +29,14 @@ export class ProductItemComponent implements OnInit {
 		for (let i = 1; i <= this.maxAmount; i++) {
 			this.selectableAmounts.push(i);
 		}
+	}
+
+	/**
+	 * @description Fire event to inform
+	 * that amount of product has changed.
+	 * @param {number} newAmount - The selected amount
+	 */
+	onChangeAmount(newAmount: number): void {
+		this.amountUpdated.emit(newAmount);
 	}
 }
