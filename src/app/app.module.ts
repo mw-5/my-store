@@ -16,7 +16,7 @@ import { HeaderComponent } from './layout/header/header.component';
 		ProductListComponent,
 		ProductItemComponent,
 		CartComponent,
-  HeaderComponent,
+		HeaderComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
 	providers: [],
