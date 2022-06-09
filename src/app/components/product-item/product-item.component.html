@@ -1,10 +1,10 @@
-<div>
-    <img src="{{ product.url }}" alt="Image of product" />
+<div class="product-container">
+    <img class="product-image" src="{{ product.url }}" alt="Image of product" />
     <div>
         <p>{{ product.name }}</p>
         <p>${{ product.price }}</p>
         <p>Amount: 
-            <select [(ngModel)]="product.amount" (ngModelChange)="onChangeAmount($event)">
+            <select class="select-input" [(ngModel)]="product.amount" (ngModelChange)="onChangeAmount($event)">
                 <option *ngFor="let i of selectableAmounts" [ngValue]="i">{{ i }}</option>
             </select>
         </p>
