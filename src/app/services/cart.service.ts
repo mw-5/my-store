@@ -19,4 +19,12 @@ export class CartService {
 	addProduct(product: Product): void {
 		this.cart.push(product);
 	}
+
+	/**
+	 * @description Get the products in the shopping cart.
+	 * @returns {Product[]} - The products of the cart
+	 */
+	getProducts(): Product[] {
+		return this.cart;
+	}
 }
