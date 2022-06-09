@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/models/product';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
 	selector: 'app-product-item',
@@ -12,7 +13,7 @@ export class ProductItemComponent implements OnInit {
 	maxAmount = 10;
 	@Output() amountUpdated: EventEmitter<number> = new EventEmitter();
 
-	constructor() {
+	constructor(private cart: CartService) {
 		// Init product for type safety
 		this.product = {
 			id: 0,
@@ -38,5 +39,13 @@ export class ProductItemComponent implements OnInit {
 	 */
 	onChangeAmount(newAmount: number): void {
 		this.amountUpdated.emit(newAmount);
+	}
+
+	/**
+	 * @description Add product to shopping cart.
+	 */
+	addToCart(): void {
+		this.cart.addProduct(this.product);
+		alert('Added to cart.');
 	}
 }
