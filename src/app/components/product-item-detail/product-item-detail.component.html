@@ -1,6 +1,11 @@
 <img src="{{ product.url }}" alt="Image of product" />
+
 <h1>{{ product.name }}</h1>
 <p>${{ product.price }}</p>
 <p>{{ product.description }}</p>
-<!-- TODO: add select amount -->
+
+<select [(ngModel)]="product.amount">
+    <option *ngFor="let i of selectableAmounts" [ngValue]="i">{{ i }}</option>
+</select>
+
 <!-- TODO: add add-to-cart button -->

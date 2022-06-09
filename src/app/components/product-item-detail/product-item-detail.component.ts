@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductItemDetailComponent implements OnInit {
 	product: Product;
+	selectableAmounts: number[] = [];
 
 	constructor(
 		private productService: ProductService,
@@ -28,6 +29,7 @@ export class ProductItemDetailComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.loadProduct();
+		this.InitAmounts(10);
 	}
 
 	/**
@@ -46,5 +48,16 @@ export class ProductItemDetailComponent implements OnInit {
 				this.product = product;
 			}
 		});
+	}
+
+	/**
+	 * @description Init array for selectable amounts.
+	 * @param {number} maxAmount - The maximum amount
+	 * selectable
+	 */
+	private InitAmounts(maxAmount: number): void {
+		for (let i = 1; i <= maxAmount; i++) {
+			this.selectableAmounts.push(i);
+		}
 	}
 }
