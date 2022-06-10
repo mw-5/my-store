@@ -9,11 +9,13 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartComponent implements OnInit {
 	cart: Product[] = [];
+	orderTotal = 0;
 
 	constructor(private cartService: CartService) {}
 
 	ngOnInit(): void {
 		this.cart = this.cartService.getProducts();
+		this.calculateOrderTotal();
 	}
 
 	/**
@@ -34,6 +36,16 @@ export class CartComponent implements OnInit {
 				// Update amount in cart
 				this.cart[index].amount = newAmount;
 			}
+			this.calculateOrderTotal();
 		}
+	}
+
+	/**
+	 * @description Calculate total amount of order.
+	 */
+	calculateOrderTotal() {
+		this.orderTotal = this.cart
+			.map((p) => p.price * p.amount)
+			.reduce((previous, current) => previous + current);
 	}
 }
