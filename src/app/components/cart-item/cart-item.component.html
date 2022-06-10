@@ -5,6 +5,6 @@
         <br>
         {{ product.price }}
         <br>
-        Amount: <input type="number" min="0" max="10" [(ngModel)]="product.amount" />
+        Amount: <input type="number" min="0" max="10" [(ngModel)]="product.amount" (ngModelChange)="onChangeAmount($event)" />
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/models/product';
 
 @Component({
@@ -8,6 +8,7 @@ import { Product } from 'src/app/models/product';
 })
 export class CartItemComponent implements OnInit {
 	@Input() product: Product;
+	@Output() amountUpdated: EventEmitter<number> = new EventEmitter();
 
 	constructor() {
 		// Init product for type safety
@@ -22,4 +23,24 @@ export class CartItemComponent implements OnInit {
 	}
 
 	ngOnInit(): void {}
+
+	/**
+	 * @description Fire event to inform
+	 * that amount of product has changed.
+	 * @param {number} newAmount - The selected amount
+	 */
+	onChangeAmount(newAmount: number): void {
+		// Limit input to valid entry
+		if (newAmount < 0) {
+			newAmount = 0;
+		} else if (newAmount > 10) {
+			newAmount = 10;
+		}
+
+		// Set new amount of product again
+		// in case input was invalid
+		this.product.amount = newAmount;
+
+		this.amountUpdated.emit(newAmount);
+	}
 }
