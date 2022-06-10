@@ -1,1 +1,5 @@
-<p>cart works!</p>
+<app-cart-item
+    *ngFor="let product of cart"
+    [product]="product"
+    (amountUpdated)="onAmountUpdated(product, $event)">
+</app-cart-item>
