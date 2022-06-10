@@ -1,10 +1,16 @@
-<div>
+<div class="cart-item">
     <img src="{{ product.url }}" alt="Image of {{ product.name }}" />
-    <div>
-        {{ product.name }}
-        <br>
-        {{ product.price }}
-        <br>
-        Amount: <input type="number" min="0" max="10" [(ngModel)]="product.amount" (ngModelChange)="onChangeAmount($event)" />
+    <div class="cart-item-details">
+        <h3>{{ product.name }}</h3>
+        ${{ product.price }}
+        <p>
+            Amount: <input
+                        class="number-input"
+                        type="number"
+                        min="0"
+                        max="10"
+                        [(ngModel)]="product.amount"
+                        (ngModelChange)="onChangeAmount($event)" />
+        </p>
     </div>
 </div>
