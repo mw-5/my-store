@@ -11,6 +11,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { ProductItemDetailComponent } from './components/product-item-detail/product-item-detail.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
 	declarations: [
@@ -21,6 +22,7 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
 		HeaderComponent,
 		ProductItemDetailComponent,
 		CartItemComponent,
+		CheckoutComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
 	providers: [],
