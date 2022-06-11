@@ -27,4 +27,14 @@ export class CartService {
 	getProducts(): Product[] {
 		return this.cart;
 	}
+
+	/**
+	 * @description Calculate total amount of cart.
+	 * @returns {number} - The total amount of the cart
+	 */
+	getCartTotal(): number {
+		return this.cart
+			.map((p) => p.price * p.amount)
+			.reduce((previous, current) => previous + current);
+	}
 }

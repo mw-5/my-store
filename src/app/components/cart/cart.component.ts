@@ -15,7 +15,7 @@ export class CartComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.cart = this.cartService.getProducts();
-		this.calculateOrderTotal();
+		this.orderTotal = this.cartService.getCartTotal();
 	}
 
 	/**
@@ -37,16 +37,7 @@ export class CartComponent implements OnInit {
 				// Update amount in cart
 				this.cart[index].amount = newAmount;
 			}
-			this.calculateOrderTotal();
+			this.orderTotal = this.cartService.getCartTotal();
 		}
-	}
-
-	/**
-	 * @description Calculate total amount of order.
-	 */
-	calculateOrderTotal() {
-		this.orderTotal = this.cart
-			.map((p) => p.price * p.amount)
-			.reduce((previous, current) => previous + current);
 	}
 }
