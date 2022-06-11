@@ -16,4 +16,12 @@ export class UserService {
 			creditCardNumber: 0,
 		};
 	}
+
+	/**
+	 * @description Get the user.
+	 * @returns - The user
+	 */
+	getUser(): User {
+		return this.user;
+	}
 }
