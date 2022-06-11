@@ -1,1 +1,95 @@
-<p>checkout works!</p>
+<form #form="ngForm" (ngSubmit)="onSubmit()">
+    
+    <p>
+        <label for="firstName">First name</label>
+        <br>
+        <input
+            id="firstName"
+            type="text"
+            name="firstName"
+            placeholder="min 2 characters"
+            required
+            minlength="2"
+            [(ngModel)]="user.firstName"
+            #firstName="ngModel">
+        <span *ngIf="firstName.dirty && firstName.invalid">
+            <span *ngIf="firstName.errors?.['required']">
+                Please enter your first name.
+            </span>
+            <span *ngIf="firstName.errors?.['minlength']">
+                First name must contain at least two characters.
+            </span>
+        </span>
+    </p>
+
+    <p>
+        <label for="lastName">Last name</label>
+        <br>
+        <input
+            id="lastName"
+            type="text"
+            name="lastName"
+            placeholder="min 2 characters"
+            required
+            minlength="2"
+            [(ngModel)]="user.lastName"
+            #lastName="ngModel">
+        <span *ngIf="lastName.dirty && lastName.invalid">
+            <span *ngIf="lastName.errors?.['required']">
+                Please enter your last name.
+            </span>
+            <span *ngIf="lastName.errors?.['minlength']">
+                Last name must contain at least two characters.
+            </span>
+        </span>
+    </p>
+
+    <p>
+        <label for="address">Address</label>
+        <br>
+        <input
+            id="address"
+            type="text"
+            name="address"
+            placeholder="min 6 characters"
+            required
+            minlength="6"
+            [(ngModel)]="user.address"
+            #address="ngModel">
+        <span *ngIf="address.dirty && address.invalid">
+            <span *ngIf="address.errors?.['required']">
+                Please enter your address.
+            </span>
+            <span *ngIf="address.errors?.['minlength']">
+                Address must contain at least six characters.
+            </span>
+        </span>
+    </p>
+
+    <p>
+        <label for="creditCard">Credit card number</label>
+        <br>
+        <input
+            id="creditCard"
+            type="text"
+            name="creditCardNumber"
+            placeholder="16 digits"
+            required
+            pattern="[0-9]{16}"
+            [(ngModel)]="user.creditCardNumber"
+            #creditCard="ngModel">
+        <span *ngIf="creditCard.dirty && creditCard.invalid">
+            <span *ngIf="creditCard.errors?.['required']">
+                Please enter your credit card number.
+            </span>
+            <span *ngIf="creditCard.errors?.['pattern']">
+                Credit card number has to have 16 digits.
+            </span>
+        </span>
+    </p>
+
+    <input
+        type="submit"
+        value="Submit"
+        [disabled]="form.invalid">
+</form>
