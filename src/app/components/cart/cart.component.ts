@@ -32,6 +32,7 @@ export class CartComponent implements OnInit {
 			if (newAmount == 0) {
 				// Remove product from cart
 				this.cart.splice(index, 1);
+				alert('Product removed from cart.');
 			} else {
 				// Update amount in cart
 				this.cart[index].amount = newAmount;
