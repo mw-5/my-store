@@ -33,6 +33,12 @@ export class CartService {
 	 * @returns {number} - The total amount of the cart
 	 */
 	getCartTotal(): number {
+		// Return 0 for empty array
+		if (this.cart.length == 0) {
+			return 0;
+		}
+
+		// Return sum of amount * price
 		return this.cart
 			.map((p) => p.price * p.amount)
 			.reduce((previous, current) => previous + current);
