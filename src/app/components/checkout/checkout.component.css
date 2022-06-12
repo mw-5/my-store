@@ -4,4 +4,5 @@
 
 .input-error {
 	color: red;
+	position: absolute;
 }
