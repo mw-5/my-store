@@ -1,4 +1,4 @@
-<form #form="ngForm" (ngSubmit)="onSubmit()">
+<form class="form-margin" #form="ngForm" (ngSubmit)="onSubmit()">
     
     <p>
         <label for="firstName">First name</label>
@@ -12,7 +12,7 @@
             minlength="2"
             [(ngModel)]="user.firstName"
             #firstName="ngModel">
-        <span *ngIf="firstName.dirty && firstName.invalid">
+        <span class="input-error" *ngIf="firstName.dirty && firstName.invalid">
             <span *ngIf="firstName.errors?.['required']">
                 Please enter your first name.
             </span>
@@ -34,7 +34,7 @@
             minlength="2"
             [(ngModel)]="user.lastName"
             #lastName="ngModel">
-        <span *ngIf="lastName.dirty && lastName.invalid">
+        <span class="input-error" *ngIf="lastName.dirty && lastName.invalid">
             <span *ngIf="lastName.errors?.['required']">
                 Please enter your last name.
             </span>
@@ -56,7 +56,7 @@
             minlength="6"
             [(ngModel)]="user.address"
             #address="ngModel">
-        <span *ngIf="address.dirty && address.invalid">
+        <span class="input-error" *ngIf="address.dirty && address.invalid">
             <span *ngIf="address.errors?.['required']">
                 Please enter your address.
             </span>
@@ -78,7 +78,7 @@
             pattern="[0-9]{16}"
             [(ngModel)]="user.creditCardNumber"
             #creditCard="ngModel">
-        <span *ngIf="creditCard.dirty && creditCard.invalid">
+        <span class="input-error" *ngIf="creditCard.dirty && creditCard.invalid">
             <span *ngIf="creditCard.errors?.['required']">
                 Please enter your credit card number.
             </span>
