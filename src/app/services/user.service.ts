@@ -13,7 +13,7 @@ export class UserService {
 			firstName: '',
 			lastName: '',
 			address: '',
-			creditCardNumber: 0,
+			creditCardNumber: '',
 		};
 	}
 

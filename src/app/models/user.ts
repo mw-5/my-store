@@ -6,5 +6,5 @@ export type User = {
 	firstName: string;
 	lastName: string;
 	address: string;
-	creditCardNumber: number;
+	creditCardNumber: string;
 };

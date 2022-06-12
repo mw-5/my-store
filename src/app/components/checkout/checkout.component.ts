@@ -16,7 +16,7 @@ export class CheckoutComponent implements OnInit {
 			firstName: '',
 			lastName: '',
 			address: '',
-			creditCardNumber: 0,
+			creditCardNumber: '',
 		};
 	}
 
