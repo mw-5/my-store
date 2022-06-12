@@ -1,10 +1,16 @@
-<div *ngIf="!isEmpty; else emptyMsg">
+<div class="cart-container" *ngIf="!isEmpty; else emptyMsg">
+    <div class="cart-panel">
+        <app-cart-item
+            *ngFor="let product of cart"
+            [product]="product"
+            (amountUpdated)="onAmountUpdated(product, $event)">
+        </app-cart-item>
+        Total: ${{ orderTotal.toFixed(2) }}
+    </div>
     <app-checkout></app-checkout>
-    <app-cart-item
-        *ngFor="let product of cart"
-        [product]="product"
-        (amountUpdated)="onAmountUpdated(product, $event)">
-    </app-cart-item>
-    Total: ${{ orderTotal }}
 </div>
-<ng-template #emptyMsg>The cart is empty.</ng-template>
+<ng-template #emptyMsg>
+    <p class="empty-cart-message">
+        The cart is empty.
+    </p>
+</ng-template>
