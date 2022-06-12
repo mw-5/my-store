@@ -10,12 +10,14 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartComponent implements OnInit {
 	cart: Product[] = [];
 	orderTotal = 0;
+	isEmpty = true;
 
 	constructor(private cartService: CartService) {}
 
 	ngOnInit(): void {
 		this.cart = this.cartService.getProducts();
 		this.orderTotal = this.cartService.getCartTotal();
+		this.setCartState();
 	}
 
 	/**
@@ -38,6 +40,19 @@ export class CartComponent implements OnInit {
 				this.cart[index].amount = newAmount;
 			}
 			this.orderTotal = this.cartService.getCartTotal();
+			this.setCartState();
+		}
+	}
+
+	/**
+	 * @description Check whether cart is empty
+	 * and set state accordingly.
+	 */
+	setCartState(): void {
+		if (this.cart.length > 0) {
+			this.isEmpty = false;
+		} else {
+			this.isEmpty = true;
 		}
 	}
 }
