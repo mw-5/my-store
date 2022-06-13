@@ -24,4 +24,14 @@ export class UserService {
 	getUser(): User {
 		return this.user;
 	}
+
+	/**
+	 * @description Remove cached user data.
+	 */
+	resetUser(): void {
+		this.user.firstName = '';
+		this.user.lastName = '';
+		this.user.address = '';
+		this.user.creditCardNumber = '';
+	}
 }
