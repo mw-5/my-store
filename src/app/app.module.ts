@@ -12,6 +12,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { ProductItemDetailComponent } from './components/product-item-detail/product-item-detail.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 
 @NgModule({
 	declarations: [
@@ -23,6 +24,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 		ProductItemDetailComponent,
 		CartItemComponent,
 		CheckoutComponent,
+		ConfirmationComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
 	providers: [],
