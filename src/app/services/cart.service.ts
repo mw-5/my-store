@@ -43,4 +43,11 @@ export class CartService {
 			.map((p) => p.price * p.amount)
 			.reduce((previous, current) => previous + current);
 	}
+
+	/**
+	 * @description: Remove all entries from cart.
+	 */
+	resetCart(): void {
+		this.cart.splice(0);
+	}
 }
