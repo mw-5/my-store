@@ -13,6 +13,7 @@ import { ProductItemDetailComponent } from './components/product-item-detail/pro
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
 	declarations: [
@@ -26,7 +27,13 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
 		CheckoutComponent,
 		ConfirmationComponent,
 	],
-	imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		HttpClientModule,
+		FormsModule,
+		NgbModule,
+	],
 	providers: [],
 	bootstrap: [AppComponent],
 })
