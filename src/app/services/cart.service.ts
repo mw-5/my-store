@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root',
@@ -10,6 +11,10 @@ export class CartService {
 	 */
 	cart: Product[] = [];
 
+	// BehaviorSubject is explained in this Angular tutorial:
+	// https://blog.angular-university.io/how-to-build-angular2-apps-using-rxjs-observable-data-services-pitfalls-to-avoid/
+	#cartCount: BehaviorSubject<number> = new BehaviorSubject(0);
+
 	constructor() {}
 
 	/**
@@ -18,6 +23,7 @@ export class CartService {
 	 */
 	addProduct(product: Product): void {
 		this.cart.push(product);
+		this.updateCartCount();
 	}
 
 	/**
@@ -49,5 +55,32 @@ export class CartService {
 	 */
 	resetCart(): void {
 		this.cart.splice(0);
+		this.updateCartCount();
+	}
+
+	/**
+	 * @description Get the observable number of
+	 * items in the cart which is product * amount.
+	 * @returns {Observable<number>} - The number of products
+	 */
+	getCartCount(): Observable<number> {
+		return this.#cartCount.asObservable();
+	}
+
+	/**
+	 * @description Calculate the current number of
+	 * items in the cart and inform subscribers.
+	 */
+	updateCartCount(): void {
+		// Calculate new value
+		let newValue = 0;
+		if (this.cart.length > 0) {
+			newValue = this.cart
+				.map((p) => p.amount)
+				.reduce((accAmount, curAmount) => accAmount + curAmount);
+		}
+
+		// Push new value to subscribers
+		this.#cartCount.next(newValue);
 	}
 }

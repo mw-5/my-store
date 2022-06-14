@@ -39,6 +39,8 @@ export class CartComponent implements OnInit {
 				// Update amount in cart
 				this.cart[index].amount = newAmount;
 			}
+
+			this.cartService.updateCartCount();
 			this.orderTotal = this.cartService.getCartTotal();
 			this.setCartState();
 		}
