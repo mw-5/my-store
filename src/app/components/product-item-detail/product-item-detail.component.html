@@ -8,7 +8,7 @@
             <option *ngFor="let i of selectableAmounts" [ngValue]="i">{{ i }}</option>
         </select>
         <br>
-        <button (click)="addToCart()">Add to cart</button>
+        <button class="btn btn-primary" (click)="addToCart()">Add to cart</button>
         <br>
         <a class="back-link" routerLink="/">Back to product list</a>
     </div>
