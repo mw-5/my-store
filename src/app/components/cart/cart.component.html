@@ -5,7 +5,7 @@
             [product]="product"
             (amountUpdated)="onAmountUpdated(product, $event)">
         </app-cart-item>
-        Total: ${{ orderTotal.toFixed(2) }}
+        <h3>Total: ${{ orderTotal.toFixed(2) }}</h3>
     </div>
     <app-checkout></app-checkout>
 </div>
