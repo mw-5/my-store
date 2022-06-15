@@ -22,7 +22,16 @@ export class CartService {
 	 * @param {Product} product - The product to be added
 	 */
 	addProduct(product: Product): void {
-		this.cart.push(product);
+		// Check if product already exists in cart
+		const index = this.cart.findIndex((p) => p.id === product.id);
+		if (index === -1) {
+			// New product
+			this.cart.push(product);
+		} else {
+			// Product already exists -> only add amount
+			this.cart[index].amount += product.amount;
+		}
+
 		this.updateCartCount();
 	}
 
