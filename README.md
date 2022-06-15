@@ -17,6 +17,7 @@ Allows user to:
 
 ![MyStore demo](demo.gif)
 
+---
 
 ## Table of content
 
